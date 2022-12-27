@@ -1,0 +1,57 @@
+#field {
+    width: 1000px;
+    min-height: 1000px;
+    background-repeat: no-repeat;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.cell {
+    width: 100px;
+    height: 150px;
+    border: 1px solid black;
+}
+
+.cat {
+    width: 100%;
+    height: 100%;
+    background-image: url(cat.png);
+    background-repeat: no-repeat;
+}
+
+.arrowBase {
+    width: 8px;
+    height: 15px;
+    position: relative;
+    left: 55px;
+    top: 85px;
+}
+
+.arrow {
+    width: 8px;
+    height: 60px;
+}
+
+.green {
+    width: 8px;
+    height: 60px;
+    background: green;
+}
+
+.red {
+    width: 8px;
+    height: 0;
+    background: red;
+}
+
+.arrowEnd {
+    background-image: url(arrowEnd.png);
+    transform: rotate(270deg);
+    width: 8px;
+    height: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
