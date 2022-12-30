@@ -226,7 +226,6 @@ class Actions {
         let info = CatsManager.get(id);
         console.log(target, target === -1);
         if (target !== -1) {
-            console.log('dddddddd');
             if (point === 'горло') {
                 damage = 0.4;
             } else if (point === 'шея') {
