@@ -83,6 +83,7 @@ socket.on('moving', (result) => {
         let whatToRotate = tds[(result.new.y - 1) * 10 + (result.new.x - 1)].children[0].children[0];
         let arrowGrade;
         result.grade = parseInt(result.grade);
+        console.log(result.grade);
         if (result.side === '0') {
             arrowGrade = result.grade;
         } else {
@@ -94,7 +95,7 @@ socket.on('moving', (result) => {
                 if (arrowGrade <= 0) {
                     arrowGrade = 360 - Math.abs(arrowGrade) % 360;
                 };
-                console.log(result.grade, arrowGrade, Date.now(), result.start);
+                console.log(arrowGrade, Date.now(), result.start);
             };
         };
         whatToRotate.style.transform = `rotate(${arrowGrade}deg)`;
