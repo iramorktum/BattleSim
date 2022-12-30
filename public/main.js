@@ -88,6 +88,7 @@ socket.on('moving', (result) => {
         } else {
             if (result.side === 'l') {
                 arrowGrade = (result.grade + ((Date.now() - result.start) / 50 * 2)) % 360;
+                console.log(arrowGrade, result.grade, result.start);
             } else {
                 arrowGrade = result.grade - ((Date.now() - result.start) / 50 * 2);
                 if (arrowGrade <= 0) {
