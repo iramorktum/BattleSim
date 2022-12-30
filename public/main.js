@@ -95,7 +95,7 @@ socket.on('moving', (result) => {
                 if (arrowGrade <= 0) {
                     arrowGrade = 360 - Math.abs(arrowGrade) % 360;
                 };
-                console.log(Date.now(), result.start);
+                console.log(Date.now() / 1000 / 60 % 60, Date.now() / 1000 % 60);
             };
         };
         whatToRotate.style.transform = `rotate(${arrowGrade}deg)`;
