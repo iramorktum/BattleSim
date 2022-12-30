@@ -89,14 +89,13 @@ socket.on('moving', (result) => {
         } else {
             if (result.side === 'l') {
                 arrowGrade = (result.grade + ((Date.now() - result.start) / 50 * 2)) % 360;
-                console.log(arrowGrade, Date.now() - result.start);
+                console.log(Date.now(), result.start);
             } else {
-                console.log(Date.now() / 1000 / 60, Date.now() / 1000);
                 arrowGrade = result.grade - ((Date.now() - result.start) / 50 * 2);
                 if (arrowGrade <= 0) {
                     arrowGrade = 360 - Math.abs(arrowGrade) % 360;
                 };
-                console.log(arrowGrade, Date.now() - result.start);
+                console.log(Date.now(), result.start);
             };
         };
         whatToRotate.style.transform = `rotate(${arrowGrade}deg)`;
