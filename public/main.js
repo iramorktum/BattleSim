@@ -88,12 +88,13 @@ socket.on('moving', (result) => {
         } else {
             if (result.side === 'l') {
                 arrowGrade = (result.grade + ((Date.now() - result.start) / 50 * 2)) % 360;
-                console.log(arrowGrade, result.grade, result.start);
+                console.log(arrowGrade);
             } else {
                 arrowGrade = result.grade - ((Date.now() - result.start) / 50 * 2);
                 if (arrowGrade <= 0) {
                     arrowGrade = 360 - Math.abs(arrowGrade) % 360;
                 };
+                console.log(arrowGrade);
             };
         };
         whatToRotate.style.transform = `rotate(${arrowGrade}deg)`;
@@ -110,7 +111,6 @@ socket.on('rotating', async (result) => {
     if (rotate[id] === undefined) {
         rotate[id] = setInterval(() => {
             let whatToRotate = tds[(result.y - 1) * 10 + (result.x - 1)].children[0].children[0];
-            console.log(whatToRotate.style.transform);
             let grade = parseInt(whatToRotate.style.transform.match(/[0-9]{1,3}/)[0]);
             if (result.side === 'l') {
                 grade += 2;
