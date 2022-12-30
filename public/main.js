@@ -109,6 +109,7 @@ socket.on('rotating', async (result) => {
     if (rotate[id] === undefined) {
         rotate[id] = setInterval(() => {
             let whatToRotate = tds[(result.y - 1) * 10 + (result.x - 1)].children[0].children[0];
+            console.log(whatToRotate.style.transform);
             let grade = parseInt(whatToRotate.style.transform.match(/[0-9]{1,3}/)[0]);
             if (result.side === 'l') {
                 grade += 2;
@@ -132,8 +133,10 @@ socket.on('stop rotating', (result) => {
 });
 
 socket.on('attack', (result) => {
-    let cat = tds[(result.y - 1) * 10 + (result.x - 1)];
-    cat = cat.children[0].children[0].children[0];
-    cat.children[0].style.height = `${60 * result.energy}px`;
-    cat.children[1].style.height = `${60 * (1 - result.energy)}px`;
+    try {
+        let cat = tds[(result.y - 1) * 10 + (result.x - 1)];
+        cat = cat.children[0].children[0].children[0];
+        cat.children[0].style.height = `${60 * result.energy}px`;
+        cat.children[1].style.height = `${60 * (1 - result.energy)}px`;
+    } catch {};
 });

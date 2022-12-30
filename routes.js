@@ -31,9 +31,9 @@ function initialize(app, io) {
             });
         });
     });
-    reg = setInterval(async () => {
+    /*reg = setInterval(async () => {
         io.sockets.emit('regenerate', await Actions.regenerate());
-    }, 10000);
+    }, 10000);*/
 };
 
 module.exports = { initialize };
