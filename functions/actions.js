@@ -10,11 +10,7 @@ class CatsManager {
         return cat;
     }
     static oneRoom(room) {
-        let oneRoomCats = [];
-        for (let i = 0; i < CatsManager._cats.size; i++) {
-            oneRoomCats.push(CatsManager.get(i + 1));
-        };
-        return oneRoomCats;
+        return Array.from(CatsManager._cats.values()).filter(cat => cat.room === room);
     }
 
     static set(id, key) {
@@ -28,10 +24,7 @@ class CatsManager {
     static thereIsCat(cords, room) {
         for (let i = 0; i < CatsManager._cats.size; i++) {
             let cat = CatsManager.get(i + 1);
-            if (cat.cords.x === cords.x && cat.cords.y === cords.y && cat.room === room) {
-                return false;
-            };
-            return true;
+            return !(cat.cords.x === cords.x && cat.cords.y === cords.y && cat.room === room);
         }
     }
 
